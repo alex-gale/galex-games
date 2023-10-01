@@ -1,16 +1,21 @@
 import Link from 'next/link'
 
+const ICON_SIZE = 64
 const translateClass = 'transition-transform -translate-y-1 hover:-translate-y-2'
 
-const GameButton = ({ text, icon, link }) => {
+const GameButton = ({ text, link, IconComponent }) => {
   return (
     <Link
-      className='bg-accent rounded-md'
+      className='flex-1 bg-accent rounded-md'
       href={link}
     >
-      <div className={`${translateClass} bg-light flex flex-col items-center p-3 rounded-md w-52 shadow-xl`}>
-        <div className='icon w-16 h-16 bg-red' />
-        <p className="text-center mt-2">{text}</p>
+      <div className={`${translateClass} bg-light flex flex-col items-center p-3 rounded-md shadow-2xl h-full`}>
+        <IconComponent
+          className='text-dark'
+          width={ICON_SIZE}
+          height={ICON_SIZE}
+        />
+        <p className="text-dark text-center mt-2">{text}</p>
       </div>
     </Link>
   )
